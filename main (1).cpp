@@ -1,27 +1,24 @@
-#include <iostream>
-
-constexpr int N_ELEMENTS = 100;
-
 int main()
 {
-    int *b = new int[NELEMENTS]; // Alsó vonal hiánya
-    std::cout << '1-100 ertekek duplazasa' // Itt aposztrof helyett idézőjel kell
-    for (int i = 0;) // itt hiányos a ciklusfeltétel
+    int *b = new int[N_ELEMENTS];
+    std::cout << "1-100 ertekek duplazasa" << std::endl;
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
         b[i] = i * 2;
     }
-    for (int i = 0; i; i++) // Hibás ciklusfelvétel
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-        std::cout << "Ertek:" // Pontos vessző hiánya
+        std::cout << "Ertek: " << b[i] << std::endl;
     }    
     std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag;
-        for (int i = 0; i < N_ELEMENTS, i++) // Vessző helyett pontos vessző
+    double atlag = 0;
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-        atlag += b[i] //Itt hiányzik egy pontosvessző
+        atlag += b[i];
     }
-     atlag /= N_ELEMENTS; //a változó int lesz, viszont átlagnak double vagy float kellene
+    atlag /= N_ELEMENTS;
     std::cout << "Atlag: " << atlag << std::endl;
+    delete[] b;
     return 0;
 }
 
